@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+    /* Navbar styling */
+    nav#nav {
+      background: black; /* black navbar */
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav#nav .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav#nav .navbar ul li a {
+      color: gold; /* gold links */
+      text-decoration: none;
+      padding: 8px 12px;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    nav#nav .navbar ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border-radius: 4px;
+    }
+
+    /* Split container */
+    .container {
+      display: flex;
+      height: 100vh;
+      margin-top: 50px; /* leave space for navbar */
+    }
+
+    /* Left side image - full display, no transparency */
+    .left-side {
+      flex: 1;
+      background: url('uploads/background2.png') no-repeat center center;
+      background-size: contain; /* show full image covering left side */
+    }
+
+    /* Right side form */
+    .right-side {
+      flex: 1;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+      padding: 12px 15px;
+      font-size: 16px;
+      border: 1.5px solid gold;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form input:focus {
+      border-color: gold;
+      box-shadow: 0 0 5px gold;
+    }
+
+    form button {
+      padding: 14px;
+      font-size: 18px;
+      background-color: gold;
+      color: black;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      align-self: center;
+      width: 100%;
+      max-width: 150px;
+    }
+
+    form button:hover {
+      background-color: white;
+      color: gold;
+      border: 1px solid gold;
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="navbar">
+      <ul>
+        <li><a href="main.php">Home</a></li>
+        <li><a href="recommendation.php">Recommend</a></li>
+        <li><a href="men.php">Men</a></li>
+        <li><a href="women.php">Women</a></li>
+        <li><a href="kids.php">Kids</a></li>
+        <li><a href="sale.php">Sale</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html" class="active">Signup</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="left-side"></div>
+
+    <div class="right-side">
+    <div class="login-container"> <form action="login.php" method="POST">
+      <h1>Login</h1>
+       <input type="email" name="email" placeholder="Enter email" required> 
+       <input type="password" name="password" placeholder="Enter password" required> 
+      <button type="submit">Login</button> </form> </div>
+  </div>
+
+</body>
+</html>

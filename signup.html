@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    
+    <style>
+/* Reset & base styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex; /* split screen */
+}
+
+/* LEFT SIDE IMAGE */
+.left-side {
+  flex: 1; /* take half of screen */
+  background: url('uploads/background1.png') no-repeat center center;
+  background-size: cover;
+}
+
+/* RIGHT SIDE FORM */
+.right-side {
+  flex: 1; /* take half of screen */
+  background: white; /* white background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navbar styling */
+.navbar {
+  width: 100%;
+  background-color: black; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.navbar li {
+  margin: 0 20px;
+}
+
+.navbar a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 5px;
+}
+
+/* Signup form wrapper */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Form styling */
+form {
+  background: rgba(255, 255, 255, 0.95); /* white background for form */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 300px;
+  color: black;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid gold;
+  background: white;
+  color: black;
+}
+
+input[type="submit"] {
+  background-color: gold;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: white;
+  color: gold;
+  border: 1px solid gold;
+}
+
+
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="navbar">
+    <ul>
+      <li><a href="main.php">home</a></li>
+      <li><a class="nav-link active" href="recommendation.php">Recommend</a></li>
+      <li><a class="nav-link" href="men.php">Men</a></li>
+      <li><a class="nav-link" href="women.php">Women</a></li>
+      <li><a class="nav-link active" href="kids.php">Kids</a></li>
+      <li><a class="nav-link" href="sale.php">Sale</a></li>
+      <li><a class="nav-link" href="cart.php">Cart 🛒</a></li>
+      <li><a class="nav-link" href="login.html">Login</a></li>
+      <li><a class="nav-link" href="signup.html">Signup</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="left-side"></div>
+<div class="right-side">
+  <div class="signup-container">
+  <form action="signup.php" method="post">
+
+    <h2>Signup</h2>
+
+    <!-- First Name -->
+    <input type="text" name="firstname" placeholder="First Name"
+           pattern="[A-Za-z]{2,}"
+           title="First name should contain only letters."
+           required>
+
+    <!-- Last Name -->
+    <input type="text" name="lastname" placeholder="Last Name"
+           pattern="[A-Za-z]{2,}"
+           title="Last name should contain only letters."
+           required>
+
+    <!-- Email -->
+    <input type="email" name="email" placeholder="Email" required>
+
+    <!-- Phone -->
+    <input type="text" name="phone" placeholder="Phone Number"
+           pattern="[0-9]{10}"
+           maxlength="10"
+           title="Phone number must be exactly 10 digits."
+           required>
+
+    <!-- Password -->
+    <input type="password" name="password" id="password"
+           placeholder="Password"
+           pattern=".{6,}"
+           title="Password must be at least 6 characters long."
+           required>
+
+    <!-- Re-enter Password -->
+    <input type="password" name="repassword" id="repassword"
+           placeholder="Re-enter Password"
+           pattern=".{6,}"
+           title="Password must be at least 6 characters long."
+           required>
+
+    <input type="submit" value="Register">
+  </form>
+</div>
+
+</div>
+
+
+<script>
+// Optional: Check password match before submitting
+document.querySelector("form").addEventListener("submit", function(e) {
+    const pass = document.getElementById("password").value;
+    const repass = document.getElementById("repassword").value;
+
+    if (pass !== repass) {
+        alert("Passwords do not match!");
+        e.preventDefault();
+    }
+});
+</script>
+
+</body>
+</html>
